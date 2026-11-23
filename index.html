@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RequestLab</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+
+    <h1 class="logo">Request<span>Lab</span></h1>
+
+    <!-- Method + URL + Send -->
+    <form class="request-bar">
+      <select class="method" aria-label="HTTP method">
+        <option>GET</option>
+        <option>POST</option>
+        <option>PUT</option>
+        <option>PATCH</option>
+        <option>DELETE</option>
+      </select>
+      <input class="url" type="url" aria-label="API URL" placeholder="https://api.example.com/v1/users">
+      <button class="send" type="submit">Send</button>
+    </form>
+
+    <div class="panels">
+
+      <!-- Request -->
+      <section class="panel">
+        <h2 class="panel-title">Request</h2>
+
+        <h3 class="section-title">Headers</h3>
+        <div class="header-row">
+          <input class="input" type="text" aria-label="Header name" placeholder="Key" value="Content-Type">
+          <input class="input" type="text" aria-label="Header value" placeholder="Value" value="application/json">
+        </div>
+        <div class="header-row">
+          <input class="input" type="text" aria-label="Header name" placeholder="Key">
+          <input class="input" type="text" aria-label="Header value" placeholder="Value">
+        </div>
+
+        <h3 class="section-title"><label for="body">Body</label></h3>
+        <textarea class="body" id="body" spellcheck="false" placeholder="Request body (JSON)">{
+  "name": "Ada Lovelace",
+  "email": "ada@example.com"
+}</textarea>
+      </section>
+
+      <!-- Response -->
+      <section class="panel">
+        <div class="response-top">
+          <h2 class="panel-title">Response</h2>
+          <div class="response-info">
+            <span>Status <strong class="status">200 OK</strong></span>
+            <span>Time <strong class="time">142 ms</strong></span>
+          </div>
+        </div>
+
+        <pre class="response"><span class="punc">{</span>
+  <span class="json-key">"id"</span><span class="punc">:</span> 42<span class="punc">,</span>
+  <span class="json-key">"name"</span><span class="punc">:</span> <span class="json-string">"Ada Lovelace"</span><span class="punc">,</span>
+  <span class="json-key">"email"</span><span class="punc">:</span> <span class="json-string">"ada@example.com"</span><span class="punc">,</span>
+  <span class="json-key">"active"</span><span class="punc">:</span> true<span class="punc">,</span>
+  <span class="json-key">"roles"</span><span class="punc">: [</span>
+    <span class="json-string">"admin"</span><span class="punc">,</span>
+    <span class="json-string">"editor"</span>
+  <span class="punc">]</span>
+<span class="punc">}</span></pre>
+      </section>
+
+    </div>
+  </div>
+</body>
+</html>
