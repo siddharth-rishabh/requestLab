@@ -12,7 +12,9 @@ btn.addEventListener("click", async function(e){
         console.log("Method: "+ method.value);
 
         try{
-            const response = await fetch(url.value);
+            const response = await fetch(url.value,{
+                method: method.value
+            });
         if(!response.ok){
         throw new Error("HTTP Error: " +response.status);
         }
