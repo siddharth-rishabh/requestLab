@@ -3,6 +3,20 @@ const btn = document.querySelector(".send");
 const method = document.querySelector(".method");
 const responseBox = document.querySelector(".response");
 const resStatus = document.querySelector(".status");
+const headerKey = document.querySelector(".key");
+const headerValue = document.querySelector(".value");
+const reqBody = document.querySelector(".body");
+
+
+function getHeaders(){
+    const headers = {};
+    if(headerKey.value.trim() && headerValue.value.trim()){
+        headers[headerKey.value.trim()] = headerValue.value.trim();
+    }
+    return headers;
+}
+
+console.log(getHeaders());
 
 
 btn.addEventListener("click", async function(e){
@@ -10,10 +24,13 @@ btn.addEventListener("click", async function(e){
     if(url.value.trim()!==""){
         console.log("URL: "+ url.value);
         console.log("Method: "+ method.value);
-
+        console.log("Body: "+ reqBody.value);
+        
+    
         try{
             const response = await fetch(url.value,{
-                method: method.value
+                method: method.value,
+                headers: getHeaders(),
             });
         if(!response.ok){
         throw new Error("HTTP Error: " +response.status);
